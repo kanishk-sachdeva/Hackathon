@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Books
+    </title>
+    <link rel='stylesheet' href='/stylesheets/dashboard.css' />
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
+
+<body class="dashboard">
+
+    <div class="container bg-light card rounded mt-5 mb-5 p-5">
+
+        <div class="mb-3 heading-dash fs-2 ">Books Library</div>
+
+
+
+
+        <div class="row justify-content-center row-cols-1 row-cols-sm-2 row-cols-md-3">
+
+            <% var i=0 %>
+                <% books.forEach(book=> { %>
+                    <div class="col align-self-center mb-3 ms-auto me-auto">
+                        <div class="card p-0" style="width: 18rem;">
+                            <div class="card-img-top" id="book<%= i %>" style="height: 50px;"></div>
+                            <!-- <img src="/images/book.jpg" width="100%" class="card-img-top" alt="..."> -->
+                            <div class="card-body">
+                                <p class="fs-4 fw-bolder card-text">
+                                    <%= booktitle[i] %>
+                                </p>
+                                <button onclick="window.location.href='/book?url=<%= book %>'" type="button"
+                                    class="btn btn-outline-primary">Let's Read</button>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        var hexValues = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e"];
+
+                        function populate(a) {
+                            for (var i = 0; i < 6; i++) {
+                                var x = Math.round(Math.random() * 14);
+                                var y = hexValues[x];
+                                a += y;
+                            }
+                            return a;
+                        }
+
+                        var newColor1 = populate('#');
+                        var newColor2 = populate('#');
+                        var angle = Math.round(Math.random() * 360);
+
+                        var gradient = "linear-gradient(" + angle + "deg, " + newColor1 + ", " + newColor2 + ")";
+
+                        document.getElementById("book<%= i %>").style.background = gradient;
+                    </script>
+                    <% i++ %>
+                        <% }); %>
+
+
+
+
+
+        </div>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-danger me-md-2" onclick="window.location.href='/dashboard'" type="button">Go Back</button>
+            <!-- <button class="btn btn-primary" type="button">Button</button> -->
+          </div>
+
+    </div>
+
+
+
+    <script src="/reload/reload.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

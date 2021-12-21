@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Video
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+</head>
+
+<style>
+        stage {
+
+            width: fit-content;
+            height: fit-content;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #4f6894;
+        }
+
+        .stage .btn {
+            width: 100%;
+            font-size: 20px;
+            height: 60px;
+            border: none;
+            outline: none;
+            background: #c38b8b;
+            color: #fff;
+            cursor: pointer;
+            z-index: 0;
+            border-radius: 100px;
+        }
+
+        .stage .btn::before {
+            content: "";
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            background: linear-gradient(124deg,
+                    #ff2400,
+                    #e81d1d,
+                    #e8b71d,
+                    #e3e81d,
+                    #1de840,
+                    #1ddde8,
+                    #2b1de8,
+                    #dd00f3,
+                    #dd00f3);
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(5px);
+            animation: move 20s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            border-radius: 50px;
+        }
+
+        .stage .btn:hover::before {
+            opacity: 1;
+        }
+
+        .stage .btn::after {
+            z-index: -1;
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #555273;
+            left: 0;
+            top: 0;
+            border-radius: 100px;
+        }
+
+        @keyframes move {
+            0% {
+                background-position: 0 0;
+            }
+
+            50% {
+                background-position: 400% 0;
+            }
+
+            100% {
+                background-position: 0 0;
+            }
+        }
+    </style>
+
+<body class="videoplayer">
+
+
+    <div class="container mt-5 mb-5 bg-light p-2 card rounded-3">
+
+       <%- data.htmlcontent %>
+        <!-- <div class="video align-items-center text-center">
+            <div class="video align-items-center text-center"><iframe width="100%" height="540px"
+                    src="https://www.youtube.com/embed/PkBOEzIseOA" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe></div>
+        </div> -->
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-danger me-md-2" onclick="window.location.href='/dashboard'" type="button">Go Back</button>
+            
+          </div>
+
+    </div>
+
+    <script src="/reload/reload.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

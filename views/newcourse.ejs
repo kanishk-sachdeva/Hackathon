@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Dashboard
+    </title>
+    <link rel='stylesheet' href='/stylesheets/dashboard.css' />
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <div class="container p-5 card mt-5 mb-5">
+        <form method="post" action="/newcourse">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" name="title" placeholder=" ">
+            </div>
+            <div class="mb-3">
+                <label for="htmlcontent" class="form-label">Html Content</label>
+                <textarea class="form-control" id="htmlcontent" name="htmlcontent" style="height: 800px;"
+                    rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <script src="/reload/reload.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

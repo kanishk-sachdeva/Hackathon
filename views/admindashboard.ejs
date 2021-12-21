@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Admin Dashboard
+    </title>
+    <link rel='stylesheet' href='/stylesheets/dashboard.css' />
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
+
+<body class="admindashboard">
+
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">Admin Dashboard - RPP</span>
+            <div class="justify-content-md-end">
+                <a href="/users/logout" type="button" class="btn btn-dark">Logout</a>
+            </div>
+        </div>
+
+    </nav>
+
+    <div class="container mt-2">
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Parent Name</th>
+                    <th scope="col">Relation</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Ethnicity</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Hear about us</th>
+                    <th scope="col">Reason For Particpation</th>
+                    <th scope="col">Control</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% var i=0 %>
+                    <% data.forEach(ele=> { %>
+                        <% i++ %>
+                            <tr>
+                                <th scope="row">
+                                    <%= i %>
+                                </th>
+                                <td>
+                                    <%= ele.name %>
+                                </td>
+                                <td>
+                                    <%= ele.email %>
+                                </td>
+                                <td>
+                                    <%= ele.parentname %>
+                                </td>
+                                <td>
+                                    <%= ele.relation %>
+                                </td>
+                                <td>
+                                    <%= ele.age %>
+                                </td>
+                                <td>
+                                    <%= ele.ethnicity %>
+                                </td>
+                                <td>
+                                    <%= ele.address %>
+                                </td>
+                                <td>
+                                    <%= ele.hearaboutus %>
+                                </td>
+                                <td>
+                                    <%= ele.reason %>
+                                </td>
+                                <% if (ele.approved) { %>
+                                    <td><button onclick="window.location.href='/users/disable/<%= ele.id %>'"
+                                            type="button" class="btn btn-danger btn-sm">Disable</button></td>
+                                    <% } else { %>
+                                        <td><button onclick="window.location.href='/users/enable/<%= ele.id %>'"
+                                                type="button" class="btn btn-success btn-sm">Approve</button></td>
+                                        <% } %>
+
+                            </tr>
+                            <% }) %>
+
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <script src="/reload/reload.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

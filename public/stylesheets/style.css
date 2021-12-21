@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Permanent+Marker&family=Moo+Lah+Lah&family=Roboto&display=swap');
+/* HomePage */
+
+.home {
+  background-color: whitesmoke;
+  height: 100%;
+}
+
+.home .container {
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.61);
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  text-align: center;
+  margin: auto;
+  top: 0; left: 0; right: 0; bottom: 0;
+}
+
+.mainheading {
+  font-family: Roboto,Arial,Helvetica,sans-serif;
+  font-size: 22px;
+  margin-top: 4px;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  color: #252525;
+}
+
+
+
+
+
+/* Thank you */
+
+.message {
+  background-image: url('/images/successbg.jpg');
+  background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+
+    
+}
+
+.messagebox {
+  width: 400px;
+  padding: 20px;
+  margin: auto;
+  height: fit-content;
+  position: absolute;
+    top: 35%; bottom: 65%; left: 25%; right: 75%;
+    transition: 0.3s;
+}
+
+.videoplayer {
+  background-image: url('/images/loginbg.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+.videoplayer h3 {
+  font-family: 'Moo Lah Lah', cursive;
+  -webkit-text-stroke: 1px rgb(0, 255, 42);
+    -webkit-text-fill-color: black;
+}
+
+
+@font-face {
+  font-family: myFirstFont;
+  src: url(/stylesheets/MooLahLah-Regular.ttf);
+}
+
+.coursevideo:hover{
+  transform: scale(1.05);
+}
+
+.weekhead {
+  font-family: myFirstFont;
+  text-transform: uppercase;
+  font-size: 68px;
+}
+
+/* PC */
+@media only screen and (min-width: 600px) {
+  .home .container {
+    max-width: 900px;
+    padding: 25px;
+  }
+}
+
+/* Mobile */
+@media only screen and (max-width: 600px) {
+  .home .container {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .home {
+    background-color: whitesmoke;
+  }
+
+  .messagebox {
+    width: 80%;
+      top: 0; bottom: 0; left: 0; right: 0;
+  }
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Game
+    </title>
+    <link rel='stylesheet' href='/stylesheets/dashboard.css' />
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
+
+<body class="dashboard">
+
+    <div class="container bg-light card rounded mt-5 mb-5 p-5 align-items-center">
+
+        <script> setTimeout(function () { window.location.href = '<%= url %>'; }, 5000); </script>
+        <p class="text-center fs-3 fw-bold">Redirecting to game after 5 seconds.</p>
+
+        <!-- <iframe src="<%= url %>" style="width:900px;height:560px;border:0"></iframe> -->
+
+        <div class="d-grid mt-3 gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-danger me-md-2" onclick="window.location.href='/dashboard'" type="button">Go
+                Back</button>
+            <!-- <button class="btn btn-primary" type="button">Button</button> -->
+        </div>
+
+    </div>
+
+
+
+    <script src="/reload/reload.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

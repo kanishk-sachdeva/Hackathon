@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Books
+    </title>
+    <link rel='stylesheet' href='/stylesheets/dashboard.css' />
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
+
+<body class="dashboard">
+
+    <div class="container bg-light card rounded mt-5 mb-5 p-5">
+
+
+        <iframe src="<%= url %>" height="800px"></iframe>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-danger me-md-2" onclick="window.location.href='/books'" type="button">Go Back</button>
+            <!-- <button class="btn btn-primary" type="button">Button</button> -->
+          </div>
+
+    </div>
+
+
+
+    <script src="/reload/reload.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

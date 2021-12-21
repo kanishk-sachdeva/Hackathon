@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Dashboard
+    </title>
+    <link rel='stylesheet' href='/stylesheets/dashboard.css' />
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
+
+<body class="dashboard">
+
+    <div class="container bg-light card rounded mt-5 mb-5 p-5">
+
+        <div class="mb-3 heading-dash fs-2 ">Let's start our learning journey together</div>
+
+
+        <div onclick="window.location.href='/books'"
+         class="card card-dash fs-2 rounded text-center mb-5 fw-bolder text-white justify-content-center" style="height: 150px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-image: url('/images/booksbg.jpg');">BOOKS LIBRARY</div>
+
+        <% var i = 0 %>
+        <% coursesdata.forEach(ele => { %>
+            
+            
+            <div class="card ms-auto me-auto course <% if (coursedone >= i) { %>weekcard <% } else { %>disable<% } %> mx-3" onclick="window.location.href='/video/<%= ele.id %>/<%= i %>'" id="week<%= i %>">
+                <div class="card-body text-white larger fw-bolder"
+                    style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    <%= ele.title %> 
+                    <% if (coursedone >= i) { %>
+                        <span class="ms-3 badge bg-success smaller">Unlocked</span>
+                    <% } else { %>
+                        <span class="ms-3 badge bg-danger smaller">Locked</span>
+                    <% }  %>
+                    
+                </div>
+            </div>
+
+            <div id="arrow-down<%= i %>" class="ms-auto me-auto mt-1 mb-1 arrow-down"></div>
+            <script>
+                var hexValues = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e"];
+
+                function populate(a) {
+                    for (var i = 0; i < 6; i++) {
+                        var x = Math.round(Math.random() * 14);
+                        var y = hexValues[x];
+                        a += y;
+                    }
+                    return a;
+                }
+
+                var newColor1 = populate('#');
+                var newColor2 = populate('#');
+                var angle = Math.round(Math.random() * 360);
+
+                var gradient = "linear-gradient(" + angle + "deg, " + newColor1 + ", " + newColor2 + ")";
+
+                document.getElementById("week<%= i %>").style.background = gradient;
+                document.getElementById("arrow-down<%= i %>").style.borderTop = "20px solid " + populate('#');
+            </script>
+
+            <style>
+                
+                .weekcard:hover {
+                    transform: scale(1.1);
+                }
+                .disable {
+                    pointer-events: none;
+                }
+            </style>
+            <% i++ %>
+
+
+            <% }); %>
+
+            <div class="d-grid gap-2 d-md-flex justify-content-center p-2 border border-2 border-danger">
+                <button class="btn btn-secendory me-md-2 ps-5 pe-5" disabled type="button">Control Center : </button>
+                <button class="btn btn-danger me-md-2 ps-5 pe-5" onclick="window.location.href='/users/logout'" type="button">Logout</button>
+                <!-- <button class="btn btn-primary" type="button">Button</button> -->
+              </div>
+    
+
+    </div>
+
+
+
+    <script src="/reload/reload.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
